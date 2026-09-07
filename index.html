@@ -4908,19 +4908,60 @@
         });
         return (clone.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 30000);
       }
+      function chunkText(txt, max){
+        var out = [], cur = '', parts = txt.split(/([.!?…]+)\s+/) || [], i, s;
+        if (!parts || parts.length < 2) {
+          for (i = 0; i < txt.length; i += max) out.push(txt.substr(i, max));
+          return out;
+        }
+        for (i = 0; i < parts.length; i += 2) {
+          s = ((parts[i] || '') + (parts[i + 1] || '')).trim();
+          if (!s) continue;
+          if ((cur + ' ' + s).trim().length > max) { if (cur.trim()) out.push(cur.trim()); cur = s; }
+          else cur = (cur + ' ' + s).trim();
+        }
+        if (cur.trim()) out.push(cur.trim());
+        return out;
+      }
+      var a11yVoice = null;
+      function pickVoice(){
+        var list = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+        a11yVoice = null;
+        var favs = ['en-IN', 'en-GB', 'en-US'];
+        for (var i = 0; i < favs.length && !a11yVoice; i++) {
+          a11yVoice = list.filter(function(v){ return v.lang && v.lang.indexOf(favs[i]) === 0; })[0] || null;
+        }
+        if (!a11yVoice) a11yVoice = list.filter(function(v){ return v.lang && v.lang.indexOf('en') === 0; })[0] || list[0] || null;
+      }
+      if ('speechSynthesis' in window) speechSynthesis.addEventListener('voiceschanged', pickVoice);
+      function stopReading(){
+        a11y.reading = false;
+        if ('speechSynthesis' in window) speechSynthesis.cancel();
+        a11y.active.delete('read-aloud');
+        syncButtons();
+      }
       function readAloud(on){
         if (!('speechSynthesis' in window)) return;
         if (on) {
           a11y.reading = true;
-          var u = new SpeechSynthesisUtterance(pageText());
-          u.rate = 1; u.pitch = 1;
-          u.onend = function(){ a11y.reading = false; a11y.active.delete('read-aloud'); syncButtons(); };
-          u.onerror = function(){ a11y.reading = false; a11y.active.delete('read-aloud'); syncButtons(); };
+          pickVoice();
+          var segs = chunkText(pageText(), 800), idx = 0;
+          function nextSegment(){
+            if (!a11y.reading) return;
+            if (idx >= segs.length) { stopReading(); return; }
+            var u = new SpeechSynthesisUtterance(segs[idx++]);
+            u.rate = 1; u.pitch = 1;
+            u.lang = a11yVoice ? a11yVoice.lang : 'en-US';
+            if (a11yVoice) u.voice = a11yVoice;
+            u.onend = function(){ if (idx >= segs.length) stopReading(); else nextSegment(); };
+            u.onerror = function(){ stopReading(); };
+            speechSynthesis.speak(u);
+            if (speechSynthesis.paused) speechSynthesis.resume();
+          }
           speechSynthesis.cancel();
-          speechSynthesis.speak(u);
+          window.setTimeout(nextSegment, 80);
         } else {
-          a11y.reading = false;
-          speechSynthesis.cancel();
+          stopReading();
         }
       }
 
