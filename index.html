@@ -2447,7 +2447,7 @@
         html.a11y-invert.a11y-grayscale{filter:invert(1) grayscale(1)}
 
         /* --- Reading guide + mask --- */
-        #a11yGuide{position:fixed;left:0;right:0;height:3px;top:0;z-index:9999;pointer-events:none;background:var(--cyan);box-shadow:0 0 8px rgba(13,115,119,.8);display:none}
+        #a11yGuide{position:fixed;left:0;right:0;height:3px;top:0;z-index:9999;pointer-events:none;background:#d4af37;box-shadow:0 0 10px rgba(212,175,55,.9);display:none}
         #a11yGuide.on{display:block}
         #a11yMask{
             position:fixed;inset:0;z-index:9998;pointer-events:none;display:none;
@@ -2461,34 +2461,36 @@
         }
         #a11yMask.on{display:block}
 
-        /* --- Widget chrome --- */
+        /* --- Widget chrome (Royal theme) --- */
         #a11yFab{
             position:fixed;left:22px;bottom:22px;z-index:1200;
             width:58px;height:58px;border-radius:50%;
-            background:#0d7377;border:none;
-            box-shadow:0 6px 24px rgba(13,115,119,.45);
+            background:linear-gradient(135deg,#c8952a,#a07820 55%,#8a6818);
+            border:2px solid #e8c97a;border-radius:50%;
+            box-shadow:0 6px 24px rgba(160,120,32,.55), 0 0 0 4px rgba(200,149,42,.18);
             display:grid;place-items:center;cursor:pointer;
-            transition:transform .2s,box-shadow .2s;color:#fff;
+            transition:transform .2s,box-shadow .2s;color:#2d1b3e;
             -webkit-tap-highlight-color:transparent;
             -webkit-appearance:none;appearance:none;
         }
         #a11yFab::before{
             content:"";position:absolute;inset:0;border-radius:50%;
-            border:2px solid rgba(13,115,119,.4);pointer-events:none;
+            border:2px solid rgba(232,201,122,.6);pointer-events:none;
             animation:fabPing 2.8s cubic-bezier(0,0,.2,1) infinite;
         }
         @keyframes fabPing{0%{transform:scale(1);opacity:.9}70%,100%{transform:scale(1.5);opacity:0}}
-        #a11yFab:hover{transform:scale(1.06);box-shadow:0 14px 34px rgba(0,0,0,.35)}
-        #a11yFab:focus-visible{outline:3px solid var(--cyan);outline-offset:4px;box-shadow:0 0 0 7px rgba(13,115,119,.3)}
+        #a11yFab:hover{transform:scale(1.06);box-shadow:0 10px 34px rgba(160,120,32,.6), 0 0 0 6px rgba(200,149,42,.25)}
+        #a11yFab:focus-visible{outline:3px solid #d4af37;outline-offset:4px;box-shadow:0 0 0 7px rgba(212,175,55,.35)}
         #a11yFab.open{transform:scale(.92)}
         #a11yFab.open::before{animation-play-state:paused}
         .a11y-fab-label{
             position:absolute;left:calc(100% + 14px);top:50%;
             transform:translateY(-50%) translateX(-6px);
-            background:#0a5c5f;border:1px solid rgba(255,255,255,.2);color:#fff;
-            font-size:.8rem;font-weight:600;padding:8px 14px;border-radius:10px;white-space:nowrap;
+            background:linear-gradient(135deg,#2d1b3e,#3d2a5e);border:1px solid rgba(212,175,55,.45);color:#f5e6b8;
+            font-family:var(--font-h);font-size:.8rem;font-weight:600;padding:8px 14px;border-radius:10px;white-space:nowrap;
+            letter-spacing:.03em;
             opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
-            box-shadow:0 10px 28px rgba(0,0,0,.3);
+            box-shadow:0 10px 28px rgba(0,0,0,.4);
         }
         #a11yFab:hover .a11y-fab-label,
         #a11yFab:focus-visible .a11y-fab-label{opacity:1;transform:translateY(-50%) translateX(0)}
@@ -2497,38 +2499,63 @@
         #a11yPanel{
             position:fixed;left:22px;bottom:92px;z-index:1200;
             width:330px;max-width:calc(100vw - 44px);max-height:min(70vh,560px);overflow:auto;
-            background:#0d7377;border:1px solid rgba(255,255,255,.15);border-radius:18px;
-            box-shadow:0 24px 60px rgba(0,0,0,.35);
+            background:linear-gradient(160deg,#2d1b3e 0%,#382452 50%,#412d63 100%);
+            border:1px solid rgba(212,175,55,.4);border-radius:18px;
+            box-shadow:0 24px 60px rgba(0,0,0,.45), inset 0 0 0 1px rgba(232,201,122,.12);
             padding:18px;display:flex;flex-direction:column;gap:14px;
             opacity:0;transform:translateY(16px);pointer-events:none;
             transition:opacity .25s,transform .25s;color:#fff;
         }
+        #a11yPanel::before{
+            content:"";position:absolute;top:0;left:16px;right:16px;height:2px;
+            background:linear-gradient(90deg,transparent,#d4af37,transparent);
+            border-radius:2px;pointer-events:none;
+        }
         #a11yPanel.open{opacity:1;transform:translateY(0);pointer-events:auto}
+        #a11yPanel{scrollbar-width:thin;scrollbar-color:#d4af37 rgba(255,255,255,.08)}
+        #a11yPanel::-webkit-scrollbar{width:9px}
+        #a11yPanel::-webkit-scrollbar-track{background:rgba(255,255,255,.08);border-radius:10px}
+        #a11yPanel::-webkit-scrollbar-thumb{
+            background:linear-gradient(180deg,#e8c97a,#c8952a 55%,#a07820);
+            border-radius:10px;border:2px solid rgba(45,27,62,.6);
+        }
+        #a11yPanel::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#f5e6b8,#d4af37 55%,#c8952a)}
         .a11y-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
-        .a11y-head b{font-family:var(--font-h);font-size:1rem}
-        .a11y-close{background:none;border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:1rem;line-height:1}
+        .a11y-head b{
+            font-family:var(--font-h);font-size:1.05rem;font-weight:700;letter-spacing:.04em;
+            background:linear-gradient(90deg,#f5e6b8,#d4af37);
+            -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#d4af37;
+        }
+        .a11y-close{background:none;border:1px solid rgba(212,175,55,.5);color:#f5e6b8;border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:1rem;line-height:1}
+        .a11y-close:hover{background:rgba(212,175,55,.18)}
         .a11y-fs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
         .a11y-fs button{
-            background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;
+            background:rgba(255,255,255,.08);border:1px solid rgba(212,175,55,.35);color:#f5e6b8;
             border-radius:10px;padding:10px 0;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;
         }
         .a11y-fs button:disabled{opacity:.35;cursor:not-allowed}
-        .a11y-fs button.active{border-color:#fff;color:#fff;background:rgba(255,255,255,.25)}
+        .a11y-fs button.active{border-color:#d4af37;color:#fff;background:linear-gradient(135deg,rgba(212,175,55,.32),rgba(160,120,32,.22))}
         .a11y-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
         .a11y-btn{
             display:flex;flex-direction:column;align-items:center;gap:4px;
-            background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;
+            background:rgba(255,255,255,.08);border:1px solid rgba(212,175,55,.3);color:#f5e6b8;
             border-radius:12px;padding:12px 6px;cursor:pointer;
             font-family:inherit;font-size:.72rem;font-weight:600;line-height:1.25;
             transition:border-color .2s,background .2s,color .2s;
         }
+        .a11y-btn:hover{border-color:rgba(212,175,55,.65);background:rgba(212,175,55,.12)}
         .a11y-btn .em{font-size:1.15rem}
-        .a11y-btn.active{border-color:#fff;background:rgba(255,255,255,.25);color:#fff}
+        .a11y-btn.active{border-color:#d4af37;background:linear-gradient(135deg,rgba(212,175,55,.32),rgba(160,120,32,.22));color:#fff}
         .a11y-reset{
-            background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;
+            background:linear-gradient(135deg,rgba(212,175,55,.18),rgba(160,120,32,.12));border:1px solid rgba(212,175,55,.5);color:#f5e6b8;
             border-radius:12px;padding:12px;font-weight:700;font-size:.88rem;cursor:pointer;font-family:inherit;
+            transition:background .25s;
         }
-        .a11y-reset:hover{background:rgba(255,255,255,.22)}
+        .a11y-reset:hover{background:linear-gradient(135deg,rgba(212,175,55,.3),rgba(160,120,32,.2))}
+
+        /* accessibility mode override: keep widget royal in high-contrast mode */
+        html.a11y-high-contrast #a11yFab,
+        html.a11y-high-contrast #a11yPanel{filter:invert(1) hue-rotate(180deg)}
 
         /* ══════════════════════════════════════════
            RESPONSIVE
