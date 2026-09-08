@@ -568,8 +568,8 @@
         .about-block .ab-head::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#b8860b,rgba(184,134,11,.08))}
         .about-block .ab-sub{color:var(--text-2);font-size:.95rem;margin-bottom:1.3rem}
 
-        .focus-wheel{position:relative;--W:min(560px,86vw);width:var(--W);max-width:560px;aspect-ratio:1;margin-inline:auto;--Ix:calc(var(--W) * .41);border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(10,17,30,.95),rgba(6,11,20,.55))}
-        .focus-wheel::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;box-shadow:0 0 0 1px rgba(212,175,55,.4),0 22px 60px -32px rgba(3,10,20,.95)}
+        .focus-wheel{position:relative;--W:min(560px,86vw);width:var(--W);max-width:560px;aspect-ratio:1;margin-inline:auto;--Ix:calc(var(--W) * .355);border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(10,17,30,.95),rgba(6,11,20,.55))}
+        .focus-wheel::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(212,175,55,.28),0 0 0 2px rgba(212,175,55,.9),0 0 0 6px rgba(11,18,32,.95),0 0 0 8px rgba(212,175,55,.7),0 0 24px rgba(212,175,55,.38),0 22px 60px -32px rgba(3,10,20,.95)}
         .fw-rotate{position:absolute;inset:0;animation:wheelSpin 75s linear infinite;transform-origin:50% 50%}
         .focus-wheel:hover .fw-rotate{animation-play-state:paused}
         @keyframes wheelSpin{to{transform:rotate(360deg)}}
@@ -584,10 +584,10 @@
         }
         .fw-slice:hover{filter:brightness(1.28) saturate(1.05)}
         .fw-lab{
-            position:absolute;left:50%;top:50%;z-index:4;width:88px;pointer-events:none;
-            padding:5px 6px;border-radius:8px;text-align:center;
-            background:rgba(8,14,24,.58);border:1px solid rgba(255,255,255,.12);
-            font-size:.76rem;font-weight:600;line-height:1.28;color:#fff;
+            position:absolute;left:50%;top:50%;z-index:4;width:96px;pointer-events:none;
+            padding:6px 7px;border-radius:8px;text-align:center;
+            background:rgba(8,14,24,.6);border:1px solid rgba(255,255,255,.12);
+            font-size:.8rem;font-weight:600;line-height:1.26;color:#fff;
             text-shadow:0 1px 2px rgba(0,0,0,.7);
             box-shadow:0 8px 18px -10px rgba(3,10,20,.85);
             transform:translate(-50%,-50%) rotate(calc(var(--a) - 90deg)) translateX(var(--Ix));
@@ -595,7 +595,7 @@
         .fw-lab::before{content:"";position:absolute;left:50%;top:4px;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:var(--sc);box-shadow:0 0 0 2px rgba(8,14,24,.6)}
         .fw-center{
             position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;
-            width:44%;aspect-ratio:1;border-radius:50%;
+            width:40%;aspect-ratio:1;border-radius:50%;
             display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;
             background:radial-gradient(circle at 35% 30%,#182941,#0b1423 72%);
             border:1px solid rgba(212,175,55,.5);
@@ -606,8 +606,8 @@
         .fw-center .fw-csub{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(212,175,55,.92);line-height:1.55}
         .fw-legend{display:none}
         @media(max-width:560px){
-            .focus-wheel{--W:min(420px,88vw)}
-            .fw-lab{width:70px;font-size:.68rem;padding:4px 5px;line-height:1.22}
+            .focus-wheel{--W:min(420px,88vw);--Ix:calc(var(--W) * .345)}
+            .fw-lab{width:84px;font-size:.76rem;padding:5px 6px;line-height:1.26}
         }
 
         .process-wrap-3d{position:relative;padding:22px 10px 12px;perspective:1100px}
@@ -3181,7 +3181,7 @@
                     <div class="sub-card-top">
                         <div class="sub-badge">Basic</div>
                         <p class="sub-price" style="font-size:1rem; color:#999">Plan-1</p>
-                        <p class="sub-desc">Essential equity research for individual investors.</p>
+                        <p class="sub-desc">---</p>
                     </div>
                     <div class="sub-divider"></div>
                     <div style="padding:18px 20px 20px">
@@ -3194,7 +3194,7 @@
                     <div class="sub-card-top">
                         <div class="sub-badge">Premium</div>
                         <p class="sub-price" style="font-size:1rem; color:var(--accent)">Plan-2</p>
-                        <p class="sub-desc">Comprehensive research with frequent updates.</p>
+                        <p class="sub-desc">---</p>
                     </div>
                     <div class="sub-divider"></div>
                     <div style="padding:18px 20px 20px">
@@ -3207,7 +3207,7 @@
                     <div class="sub-card-top">
                         <div class="sub-badge" style="font-size:.8rem">Strategy Building Part 1</div>
                         <p class="sub-price" style="font-size:1rem; color:#999">Plan-3 (Basic)</p>
-                        <p class="sub-desc">Foundational strategy building for new investors.</p>
+                        <p class="sub-desc">---</p>
                     </div>
                     <div class="sub-divider"></div>
                     <div style="padding:18px 20px 20px">
@@ -3220,7 +3220,7 @@
                     <div class="sub-card-top">
                         <div class="sub-badge" style="font-size:.8rem">Strategy Building Part 2</div>
                         <p class="sub-price" style="font-size:1rem; color:#999">Plan-4 (Advance)</p>
-                        <p class="sub-desc">Advanced strategy building for experienced investors.</p>
+                        <p class="sub-desc">---</p>
                     </div>
                     <div class="sub-divider"></div>
                     <div style="padding:18px 20px 20px">
@@ -3233,7 +3233,7 @@
                     <div class="sub-card-top">
                         <div class="sub-badge" style="font-size:.8rem">Combo of Basic & Advance</div>
                         <p class="sub-price" style="font-size:1rem; color:#999">Plan-5</p>
-                        <p class="sub-desc">Combined strategy building from basic to advanced.</p>
+                        <p class="sub-desc">---</p>
                     </div>
                     <div class="sub-divider"></div>
                     <div style="padding:18px 20px 20px">
@@ -4340,7 +4340,6 @@
                                         <ul>
                                             <li>Subscription-based research reports</li>
                                             <li>One-time fees for research publications</li>
-                                            <li>Advisory services</li>
                                         </ul>
                                         <p>No commission, brokerage, referral fee, or performance-linked compensation shall be accepted. The revenue model is designed to ensure independence and avoid any conflict of interest.</p>
                                     </div>
@@ -4563,7 +4562,7 @@
                                     </div>
                                     <div class="bp-clause">
                                         <div class="bp-clause-head">
-                                            <span class="bp-clause-title">9. Regulatory Compliance</span>
+                                            <span class="bp-clause-title">6. Regulatory Compliance</span>
                                         </div>
                                         <p>This Refund & Cancellation Policy shall be read together with the applicable client agreement, SEBI regulations, circulars, guidelines and other applicable laws and regulations governing Research Analysts.</p>
                                         <p>In case of any conflict, the applicable statutory or regulatory requirements shall prevail.</p>
