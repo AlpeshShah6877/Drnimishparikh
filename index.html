@@ -535,6 +535,248 @@
         .cred:hover { transform: translateY(-3px); border-color: rgba(46,204,165,0.35); }
         .cred .dot { width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg, #2fd0c5, #0fa3b7); flex-shrink: 0; }
 
+        /* About — infographic blocks */
+        .about-identity{
+            display:flex;align-items:center;gap:16px;
+            padding:20px 22px;margin-bottom:1.2rem;
+            background:linear-gradient(135deg,rgba(46,204,165,.12),rgba(15,163,183,.06));
+            border:1px solid rgba(46,204,165,.28);border-radius:20px;
+            position:relative;overflow:hidden;
+        }
+        .about-identity::before{
+            content:"";position:absolute;left:0;top:0;bottom:0;width:5px;
+            background:linear-gradient(180deg,#2fd0c5,#0fa3b7);
+        }
+        .about-identity .ai-kicker{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#0fa3b7;margin-bottom:3px}
+        .about-identity .ai-name{font-family:var(--font-h);font-size:1.34rem;font-weight:700;line-height:1.1;color:var(--text)}
+        .about-identity .ai-role{font-size:.84rem;font-weight:600;color:#0d7377;margin-top:3px}
+        .about-identity .ai-tag{font-size:.8rem;color:var(--text-2);margin-top:5px;letter-spacing:.02em;font-weight:500}
+
+        .about-quote{
+            position:relative;margin:1.3rem 0;
+            padding:18px 20px 18px 48px;
+            background:linear-gradient(135deg,rgba(184,134,11,.1),rgba(184,134,11,.04));
+            border:1px solid rgba(184,134,11,.3);border-left:4px solid #b8860b;
+            border-radius:14px;
+        }
+        .about-quote .aq-mark{position:absolute;left:14px;top:6px;font-family:var(--font-h);font-size:2.4rem;color:#b8860b;line-height:1}
+        .about-quote p{font-family:var(--font-h);font-size:1.12rem;font-weight:600;font-style:italic;color:var(--text);line-height:1.5;margin:0 !important}
+        .about-quote p em{color:#0fa3b7;font-style:normal}
+
+        .about-block{margin-top:2.8rem}
+        .about-block .ab-head{font-family:var(--font-h);font-weight:700;font-size:1.42rem;color:var(--text);margin-bottom:.4rem;display:flex;align-items:center;gap:12px}
+        .about-block .ab-head::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#b8860b,rgba(184,134,11,.08))}
+        .about-block .ab-sub{color:var(--text-2);font-size:.95rem;margin-bottom:1.3rem}
+
+        .focus-wheel{position:relative;--W:min(560px,86vw);width:var(--W);max-width:560px;aspect-ratio:1;margin-inline:auto;--Ix:calc(var(--W) * .41);border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(10,17,30,.95),rgba(6,11,20,.55))}
+        .focus-wheel::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;box-shadow:0 0 0 1px rgba(212,175,55,.4),0 22px 60px -32px rgba(3,10,20,.95)}
+        .fw-rotate{position:absolute;inset:0;animation:wheelSpin 75s linear infinite;transform-origin:50% 50%}
+        .focus-wheel:hover .fw-rotate{animation-play-state:paused}
+        @keyframes wheelSpin{to{transform:rotate(360deg)}}
+        @media (prefers-reduced-motion: reduce){.fw-rotate{animation:none}}
+        .fw-slice{
+            position:absolute;inset:0;border-radius:50%;cursor:pointer;
+            -webkit-mask:radial-gradient(closest-side,transparent 68%,#000 69.5%,#000 98%,transparent 100%);
+            mask:radial-gradient(closest-side,transparent 68%,#000 69.5%,#000 98%,transparent 100%);
+            background:conic-gradient(transparent 0 calc(360deg - 17.75deg),var(--sc) calc(360deg - 17.75deg) 17.75deg,transparent 17.75deg);
+            transform:rotate(var(--a));
+            transition:filter .18s;
+        }
+        .fw-slice:hover{filter:brightness(1.28) saturate(1.05)}
+        .fw-lab{
+            position:absolute;left:50%;top:50%;z-index:4;width:88px;pointer-events:none;
+            padding:5px 6px;border-radius:8px;text-align:center;
+            background:rgba(8,14,24,.58);border:1px solid rgba(255,255,255,.12);
+            font-size:.76rem;font-weight:600;line-height:1.28;color:#fff;
+            text-shadow:0 1px 2px rgba(0,0,0,.7);
+            box-shadow:0 8px 18px -10px rgba(3,10,20,.85);
+            transform:translate(-50%,-50%) rotate(calc(var(--a) - 90deg)) translateX(var(--Ix));
+        }
+        .fw-lab::before{content:"";position:absolute;left:50%;top:4px;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:var(--sc);box-shadow:0 0 0 2px rgba(8,14,24,.6)}
+        .fw-center{
+            position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;
+            width:44%;aspect-ratio:1;border-radius:50%;
+            display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;
+            background:radial-gradient(circle at 35% 30%,#182941,#0b1423 72%);
+            border:1px solid rgba(212,175,55,.5);
+            box-shadow:0 20px 50px -22px rgba(0,0,0,.85),inset 0 0 26px rgba(212,175,55,.07);
+        }
+        .fw-center .fw-c10{font-family:var(--font-h);font-size:clamp(2.1rem,7vw,3.2rem);font-weight:800;line-height:1;
+            background:linear-gradient(135deg,#f5e6b8,#d4af37 55%,#b8860b);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .fw-center .fw-csub{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(212,175,55,.92);line-height:1.55}
+        .fw-legend{display:none}
+        @media(max-width:560px){
+            .focus-wheel{--W:min(420px,88vw)}
+            .fw-lab{width:70px;font-size:.68rem;padding:4px 5px;line-height:1.22}
+        }
+
+        .process-wrap-3d{position:relative;padding:22px 10px 12px;perspective:1100px}
+        .process-steps{
+            display:grid;grid-template-columns:repeat(6,1fr);
+            gap:22px;transform-style:preserve-3d;
+        }
+        .process-step{
+            position:relative;height:158px;text-align:center;
+            background:linear-gradient(160deg,#1ab7c1,#0b93a3 55%,#08707f);
+            border:1px solid rgba(255,255,255,.22);
+            border-radius:16px;color:#fff;
+            display:flex;flex-direction:column;align-items:center;justify-content:center;
+            padding:48px 12px 16px;
+            box-shadow:0 18px 30px -22px rgba(6,100,110,.55), inset 0 1px 0 rgba(255,255,255,.3);
+            transform-style:preserve-3d;
+            transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s;
+        }
+        .process-step:hover{
+            transform:rotateX(-7deg) rotateY(-5deg) translateZ(30px) translateY(-8px);
+            box-shadow:0 34px 44px -20px rgba(6,100,110,.6), inset 0 1px 0 rgba(255,255,255,.35);
+        }
+        .process-step:nth-child(even):hover{transform:rotateX(-7deg) rotateY(5deg) translateZ(30px) translateY(-8px)}
+        .process-step .ps-num{
+            position:absolute;top:16px;left:50%;z-index:3;
+            width:32px;height:32px;border-radius:50%;
+            background:linear-gradient(135deg,#ffd34d,#d4a017 55%,#b8860b);
+            color:#2c1810;font-weight:800;font-size:.82rem;
+            display:grid;place-items:center;transform:translateX(-50%);
+            box-shadow:0 8px 16px -6px rgba(184,134,11,.65), 0 0 0 3px rgba(255,255,255,.25);
+        }
+        .process-step .ps-label{font-size:.84rem;font-weight:700;letter-spacing:.02em;line-height:1.4;text-shadow:0 1px 2px rgba(3,60,68,.35)}
+        .process-step .ps-arr{
+            position:absolute;left:calc(100% + 6px);top:50%;z-index:6;
+            transform:translate(-50%,-50%);
+            width:36px;height:36px;border-radius:50%;
+            display:grid;place-items:center;
+            background:linear-gradient(135deg,#ffd34d,#d4a017 55%,#b8860b);
+            color:#2c1810;font-size:1.5rem;font-weight:900;line-height:1;padding-bottom:3px;
+            box-shadow:0 8px 18px -6px rgba(184,134,11,.75), 0 0 0 3px rgba(11,32,40,.55);
+            transition:transform .3s;
+        }
+        .process-step:hover .ps-arr{transform:translate(-25%,-50%) scale(1.15)}
+        @media(max-width:1024px){.process-steps{grid-template-columns:repeat(3,1fr)}}
+        @media(max-width:640px){
+            .process-steps{grid-template-columns:repeat(2,1fr)}
+            .process-step .ps-arr{display:none}
+        }
+        @media (prefers-reduced-motion: reduce){
+            .process-step{transition:none}
+        }
+
+        .principles-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(min(100%, 252px), 1fr));
+            gap:clamp(14px, 2vw, 22px);
+            container-type:inline-size;
+        }
+        .principle-card{
+            position:relative;isolation:isolate;overflow:hidden;
+            display:grid;gap:12px;
+            padding:clamp(20px, 3vw, 26px) clamp(18px, 2.6vw, 24px);
+            border-radius:20px;
+            background:linear-gradient(160deg, color-mix(in srgb, var(--surface) 78%, transparent), color-mix(in srgb, var(--surface-2) 92%, transparent));
+            backdrop-filter:blur(14px);
+            -webkit-backdrop-filter:blur(14px);
+            border:1px solid color-mix(in srgb, var(--border) 60%, transparent);
+            box-shadow:var(--card-shadow);
+            transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s, border-color .3s;
+        }
+        .principle-card::before{
+            content:"";position:absolute;inset:-60% -40% auto auto;width:130%;height:130%;z-index:-1;pointer-events:none;
+            background:radial-gradient(closest-side, color-mix(in srgb, var(--violet) 24%, transparent), transparent 72%);
+            opacity:0;transition:opacity .45s ease;
+        }
+        .principle-card::after{
+            content:"";position:absolute;inset:0 auto auto 0;width:100%;height:3px;
+            background:linear-gradient(90deg,#2fd0c5,#b8860b,var(--violet));
+            transform:scaleX(0);transform-origin:left;
+            transition:transform .45s cubic-bezier(.22,1,.36,1);
+        }
+        .principle-card:hover{transform:translateY(-6px);border-color:color-mix(in srgb, var(--violet) 45%, transparent);box-shadow:var(--card-hover)}
+        .principle-card:hover::before{opacity:1}
+        .principle-card:hover::after{transform:scaleX(1)}
+        .principle-card .pc-num{
+            position:absolute;top:10px;right:14px;z-index:0;
+            font-family:var(--font-h);font-size:2.1rem;font-weight:700;line-height:1;
+            color:color-mix(in srgb, #b8860b 62%, transparent);
+        }
+        .principle-card .pc-icon{
+            width:56px;height:56px;border-radius:16px;
+            display:grid;place-items:center;color:var(--violet);
+            background:color-mix(in srgb, var(--violet) 14%, var(--surface));
+            border:1px solid color-mix(in srgb, var(--violet) 30%, transparent);
+            transition:transform .3s cubic-bezier(.22,1,.36,1), background .3s;
+        }
+        .principle-card .pc-icon svg{width:26px;height:26px}
+        .principle-card:hover .pc-icon{transform:translateY(-3px) rotate(-6deg) scale(1.06);background:color-mix(in srgb, var(--violet) 24%, var(--surface))}
+        .principle-card .pc-title{font-size:1rem;font-weight:700;color:var(--text);text-wrap:balance}
+        .principle-card .pc-desc{font-size:.85rem;color:var(--text-2);line-height:1.7;text-wrap:pretty}
+        @container (max-width: 280px){
+            .principle-card{padding:16px;gap:10px}
+            .principle-card .pc-icon{width:48px;height:48px;font-size:1.4rem}
+            .principle-card .pc-num{font-size:1.9rem}
+        }
+        @media (prefers-reduced-motion: reduce){
+            .principle-card,.principle-card::before,.principle-card::after,.principle-card .pc-icon{transition:none}
+        }
+
+        .about-closing{
+            margin-top:2.8rem;position:relative;overflow:hidden;text-align:center;
+            padding:46px 26px 40px;border-radius:24px;
+            background:
+                radial-gradient(120% 120% at 50% -10%,rgba(212,175,55,.16),transparent 50%),
+                radial-gradient(130% 120% at 50% 125%,rgba(15,163,183,.13),transparent 52%),
+                linear-gradient(180deg,rgba(13,22,41,.92),rgba(7,13,24,.96));
+            border:1px solid rgba(212,175,55,.38);
+            box-shadow:0 28px 70px -34px rgba(3,10,20,.95), inset 0 1px 0 rgba(255,255,255,.07);
+        }
+        .about-closing::before{content:"";position:absolute;top:0;left:12%;right:12%;height:2px;
+            background:linear-gradient(90deg,transparent,#d4af37,transparent);box-shadow:0 0 22px rgba(212,175,55,.75)}
+        .about-closing::after{content:"";position:absolute;inset:auto 0 0 0;height:55%;
+            background:radial-gradient(60% 100% at 50% 100%,rgba(255,211,77,.09),transparent 70%);pointer-events:none}
+        .about-closing>*{position:relative;z-index:1}
+        .about-closing .ac-head{
+            font-family:var(--font-h);font-size:clamp(1.32rem,3.5vw,1.85rem);font-weight:800;line-height:1.32;
+            margin-bottom:.35rem;text-wrap:balance;
+            background:linear-gradient(115deg,#f5e6b8,#d4af37 35%,#b8860b 60%,#f8ecc4 85%,#d4af37);
+            background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
+            animation:goldShine 6s linear infinite;
+        }
+        @keyframes goldShine{to{background-position:220% center}}
+        .about-closing p.ac-aud{color:#cbd5e1;font-size:.95rem;line-height:1.7;max-width:760px;margin:.8rem auto 0;text-wrap:balance}
+        .about-closing p.ac-aud em{color:#d4af37;font-style:normal;font-weight:600}
+        .ac-pivot{margin-top:1.8rem;display:flex;flex-direction:column;align-items:center;gap:12px}
+        .ac-no{
+            display:inline-flex;align-items:center;gap:10px;
+            padding:9px 20px;border-radius:999px;
+            background:rgba(148,163,184,.08);border:1px solid rgba(148,163,184,.28);
+            font-size:.94rem;color:rgba(203,213,225,.9);
+            box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+        }
+        .ac-no .x{width:22px;height:22px;border-radius:50%;background:rgba(248,113,113,.18);border:1px solid rgba(248,113,113,.45);
+            color:#f87171;font-weight:900;font-size:.72rem;display:grid;place-items:center;flex-shrink:0}
+        .ac-no span{text-decoration:line-through;text-decoration-thickness:1.5px;text-decoration-color:rgba(148,163,184,.55)}
+        .ac-bridge{color:#d4af37;font-size:1.35rem;font-weight:800;line-height:1;text-shadow:0 0 14px rgba(212,175,55,.45)}
+        .ac-yes{
+            max-width:680px;margin-inline:auto;
+            padding:16px 24px;border-radius:18px;text-align:center;
+            background:linear-gradient(135deg,rgba(212,175,55,.17),rgba(184,134,11,.07));
+            border:1px solid rgba(212,175,55,.42);
+            font-family:var(--font-h);font-size:clamp(1rem,2.4vw,1.16rem);font-weight:700;line-height:1.55;color:#f5e6b8;
+            box-shadow:0 16px 38px -20px rgba(184,134,11,.5), inset 0 1px 0 rgba(255,255,255,.14);
+            text-wrap:balance;
+        }
+        .ac-yes em{color:#2fd0c5;font-style:normal}
+        .ac-trio{margin-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+        .ac-trio span{
+            display:inline-flex;align-items:center;gap:9px;
+            padding:9px 18px;border-radius:999px;
+            font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+            background:#0d1626;border:1px solid rgba(212,175,55,.36);color:#f5e6b8;
+            box-shadow:0 10px 22px -12px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.09);
+        }
+        .ac-trio span::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--tc);box-shadow:0 0 10px var(--tc)}
+        .ac-trio .t1{--tc:#2fd0c5}.ac-trio .t2{--tc:#d4af37}.ac-trio .t3{--tc:#a855f7}
+        @media (prefers-reduced-motion: reduce){.about-closing .ac-head{animation:none}}
+        @media(max-width:480px){.about-identity{flex-direction:column;align-items:flex-start}}
+
         /* ══════════════════════════════════════════
            SERVICES (like RA-1 service cards)
            ══════════════════════════════════════════ */
@@ -2695,17 +2937,137 @@
                     <img src="nimish-parikh.jpeg" alt="Dr. Nimish Parikh" loading="lazy">
                 </div>
                 <div class="about-text">
-                    <p><strong>Dr. Nimish A Parikh</strong> is an Individual Part Time Research Analyst, duly registered with the Securities and Exchange Board of India (SEBI) under the SEBI (Research Analyst) Regulations, 2014. He is also enlisted with the Bombay Stock Exchange (BSE) for providing research analyst services.</p>
-                    <p>Operating from Rajkot, Gujarat, Dr. Parikh provides research-based investment analysis and recommendations to retail investors, High Net-Worth Individuals (HNIs), institutional investors, financial intermediaries, and academicians with an emphasis on transparency, ethical research practices, and regulatory compliance.</p>
-                    <p>His proposed business activities include Equity Research <span style="font-family:var(--font-b)">&amp;</span> Analysis, Investment Recommendations, Research Reports, Model Portfolios (Non-Discretionary), and Research Publications. The revenue model is built on subscription-based research reports, one-time publication fees, and advisory services — with no commission, brokerage, or performance-linked compensation accepted.</p>
+                    <div class="about-identity">
+                        <div class="ai-badge" style="width:64px;height:64px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#2fd0c5,#0fa3b7 55%,#0a8f9f);display:grid;place-items:center;color:#fff;font-family:var(--font-h);font-weight:700;font-size:1.5rem;box-shadow:0 8px 22px rgba(15,163,183,.35)">NP</div>
+                        <div>
+                            <div class="ai-kicker">Individual Research Analyst</div>
+                            <div class="ai-name">Dr. Nimish A. Parikh</div>
+                            <div class="ai-role">SEBI Registered Individual Research Analyst</div>
+                            <div class="ai-tag">Research. Insight. Discipline. Transparency.</div>
+                        </div>
+                    </div>
+                    <p>Dr. Nimish A. Parikh is a SEBI Registered Individual Research Analyst dedicated to providing independent, research-driven insights into the Indian equity markets.</p>
+                    <p>Based in Rajkot, Gujarat, Dr. Parikh&rsquo;s research approach combines fundamental analysis, market trends, business quality, valuation, technical parameters and risk assessment to help investors make more informed and disciplined investment decisions.</p>
+                    <div class="about-quote">
+                        <span class="aq-mark">&ldquo;</span>
+                        <p>Research before recommendation. <em>Risk before return.</em></p>
+                    </div>
+                    <p>In an increasingly noisy market environment, where opinions and short-term market narratives can often influence investment decisions, Dr. Parikh believes that investors deserve well-researched information, objective analysis and clearly articulated investment rationale.</p>
                     <div class="creds">
                         <div class="cred"><span class="dot"></span>SEBI Reg: INH000029193</div>
                         <div class="cred"><span class="dot"></span>BSE Enlistment: 7402</div>
                         <div class="cred"><span class="dot"></span>Part Time Research Analyst</div>
                         <div class="cred"><span class="dot"></span>Rajkot, Gujarat</div>
                         <div class="cred"><span class="dot"></span>SEBI (RA) Regulations, 2014</div>
-                        <div class="cred"><span class="dot"></span>Equity Research & Advisory</div>
+                        <div class="cred"><span class="dot"></span>Equity Research &amp; Advisory</div>
                     </div>
+                </div>
+            </div>
+
+            <div class="about-block reveal">
+                <div class="ab-head">What Dr. Parikh&rsquo;s Research Focuses On</div>
+                <div class="ab-sub">Structured understanding of opportunities across the equity market</div>
+                <div class="fw-layout">
+                    <div class="focus-wheel">
+                        <div class="fw-rotate">
+                        <div class="fw-slice" style="--a:0deg;--sc:#0fa3b7" title="Equity Research &amp; Company Analysis"></div>
+                        <div class="fw-slice" style="--a:36deg;--sc:#16b3a0" title="Fundamental &amp; Financial Analysis"></div>
+                        <div class="fw-slice" style="--a:72deg;--sc:#2fd0c5" title="Investment Opportunities &amp; Ideas"></div>
+                        <div class="fw-slice" style="--a:108deg;--sc:#17b3bd" title="Short-Term and Positional Research"></div>
+                        <div class="fw-slice" style="--a:144deg;--sc:#0d8ea0" title="Sector &amp; Industry Analysis"></div>
+                        <div class="fw-slice" style="--a:180deg;--sc:#7c3aed" title="Market Trend &amp; Technical Assessment"></div>
+                        <div class="fw-slice" style="--a:216deg;--sc:#a855f7" title="Risk&ndash;Reward Evaluation"></div>
+                        <div class="fw-slice" style="--a:252deg;--sc:#0d7377" title="Research Reports &amp; Market Insights"></div>
+                        <div class="fw-slice" style="--a:288deg;--sc:#12a5b1" title="Non-Discretionary Model Portfolios"></div>
+                        <div class="fw-slice" style="--a:324deg;--sc:#2fb6a0" title="Educational &amp; Research Publications"></div>
+                        <div class="fw-lab" style="--a:0deg;--sc:#0fa3b7">Equity Research &amp; Company Analysis</div>
+                        <div class="fw-lab" style="--a:36deg;--sc:#16b3a0">Fundamental &amp; Financial Analysis</div>
+                        <div class="fw-lab" style="--a:72deg;--sc:#2fd0c5">Investment Opportunities &amp; Ideas</div>
+                        <div class="fw-lab" style="--a:108deg;--sc:#17b3bd">Short-Term and Positional Research</div>
+                        <div class="fw-lab" style="--a:144deg;--sc:#0d8ea0">Sector &amp; Industry Analysis</div>
+                        <div class="fw-lab" style="--a:180deg;--sc:#7c3aed">Market Trend &amp; Technical Assessment</div>
+                        <div class="fw-lab" style="--a:216deg;--sc:#a855f7">Risk&ndash;Reward Evaluation</div>
+                        <div class="fw-lab" style="--a:252deg;--sc:#0d7377">Research Reports &amp; Market Insights</div>
+                        <div class="fw-lab" style="--a:288deg;--sc:#12a5b1">Non-Discretionary Model Portfolios</div>
+                        <div class="fw-lab" style="--a:324deg;--sc:#2fb6a0">Educational &amp; Research Publications</div>
+                        </div>
+                        <div class="fw-center"><div class="fw-c10">10</div><div class="fw-csub">Research<br>Focus Areas</div></div>
+                    </div>
+                    <div class="fw-legend">
+                        <div class="fw-item"><span class="fw-dot" style="background:#0fa3b7"></span><span class="fw-n">01</span><span class="fw-tt">Equity Research &amp; Company Analysis</span></div>
+                        <div class="fw-item"><span class="fw-dot" style="background:#16b3a0"></span><span class="fw-n">02</span><span class="fw-tt">Fundamental &amp; Financial Analysis</span></div>
+                        <div class="fw-item"><span class="fw-dot" style="background:#2fd0c5"></span><span class="fw-n">03</span><span class="fw-tt">Investment Opportunities &amp; Ideas</span></div>
+                        <div class="fw-item"><span class="fw-dot" style="background:#17b3bd"></span><span class="fw-n">04</span><span class="fw-tt">Short-Term and Positional Research</span></div>
+                        <div class="fw-item"><span class="fw-dot" style="background:#0d8ea0"></span><span class="fw-n">05</span><span class="fw-tt">Sector &amp; Industry Analysis</span></div>
+                        <div class="fw-item"><span class="fw-dot" style="background:#7c3aed"></span><span class="fw-n">06</span><span class="fw-tt">Market Trend &amp; Technical Assessment</span></div>
+                        <div class="fw-item"><span class="fw-dot" style="background:#a855f7"></span><span class="fw-n">07</span><span class="fw-tt">Risk&ndash;Reward Evaluation</span></div>
+                        <div class="fw-item"><span class="fw-dot" style="background:#0d7377"></span><span class="fw-n">08</span><span class="fw-tt">Research Reports &amp; Market Insights</span></div>
+                        <div class="fw-item"><span class="fw-dot" style="background:#12a5b1"></span><span class="fw-n">09</span><span class="fw-tt">Non-Discretionary Model Portfolios</span></div>
+                        <div class="fw-item"><span class="fw-dot" style="background:#2fb6a0"></span><span class="fw-n">10</span><span class="fw-tt">Educational &amp; Research Publications</span></div>
+                    </div>
+                </div>
+                <p style="margin-top:1.1rem;color:var(--text-2);font-size:.92rem;line-height:1.7">Every research idea is supported by a defined investment thesis, key factors, potential risks and the rationale behind the view.</p>
+            </div>
+
+            <div class="about-block reveal">
+                <div class="ab-head">A Research-First Approach</div>
+                <div class="ab-sub">A disciplined research process</div>
+                <div class="process-wrap-3d">
+                <div class="process-steps">
+                    <div class="process-step"><span class="ps-num">1</span><span class="ps-arr">&#8250;</span><div class="ps-label">Identify</div></div>
+                    <div class="process-step"><span class="ps-num">2</span><span class="ps-arr">&#8250;</span><div class="ps-label">Research</div></div>
+                    <div class="process-step"><span class="ps-num">3</span><span class="ps-arr">&#8250;</span><div class="ps-label">Analyse</div></div>
+                    <div class="process-step"><span class="ps-num">4</span><span class="ps-arr">&#8250;</span><div class="ps-label">Evaluate Risk</div></div>
+                    <div class="process-step"><span class="ps-num">5</span><span class="ps-arr">&#8250;</span><div class="ps-label">Form a View</div></div>
+                    <div class="process-step"><span class="ps-num">6</span><div class="ps-label">Communicate</div></div>
+                </div>
+                </div>
+                <p style="margin-top:1.1rem;color:var(--text-2);font-size:.92rem;line-height:1.7">The objective is not to predict every movement of the market, but to identify opportunities where research, probability and risk&ndash;reward are reasonably aligned.</p>
+            </div>
+
+            <div class="about-block reveal">
+                <div class="ab-head">Built On Four Principles</div>
+                <div class="ab-sub">The approach is anchored in discipline and clarity</div>
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <span class="pc-num">01</span>
+                        <div class="pc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></div>
+                        <div class="pc-title">Independent Research</div>
+                        <div class="pc-desc">Opinions are formed through analysis rather than market noise or herd behaviour.</div>
+                    </div>
+                    <div class="principle-card">
+                        <span class="pc-num">02</span>
+                        <div class="pc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16a2 2 0 0 0 2 2h14"/><path d="M9 17v-4"/><path d="M13 17V9"/><path d="M17 17v-7"/></svg></div>
+                        <div class="pc-title">Data-Driven Decisions</div>
+                        <div class="pc-desc">Financial performance, business fundamentals, valuations and market behaviour are evaluated before arriving at a research view.</div>
+                    </div>
+                    <div class="principle-card">
+                        <span class="pc-num">03</span>
+                        <div class="pc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5.5L12 2 4 5.5V12c0 6 8 10 8 10z"/><path d="M9.5 12l1.8 1.8 3.2-3.6"/></svg></div>
+                        <div class="pc-title">Risk Awareness</div>
+                        <div class="pc-desc">Potential downside and key risk factors are considered alongside the potential opportunity.</div>
+                    </div>
+                    <div class="principle-card">
+                        <span class="pc-num">04</span>
+                        <div class="pc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+                        <div class="pc-title">Transparency</div>
+                        <div class="pc-desc">Research views, assumptions and relevant disclosures are communicated clearly to investors.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-closing reveal">
+                <div class="ac-head">For Investors Who Want More Than Market Noise</div>
+                <p class="ac-aud">Retail investor, HNI, professional, institutional participant <em>&mdash;</em> or someone building a better understanding of equity markets. Dr. Parikh&rsquo;s objective: research that is clear, structured <em>&amp;</em> actionable.</p>
+                <div class="ac-pivot">
+                    <div class="ac-no"><span class="x">&#10005;</span><span>The goal is not to promise extraordinary returns.</span></div>
+                    <div class="ac-bridge">&#8595;</div>
+                    <div class="ac-yes">The goal is to help investors understand <em>what they own</em>, <em>why they own it</em> <em>&amp;</em> <em>what risks they are taking</em>.</div>
+                </div>
+                <div class="ac-trio">
+                    <span class="t1">What They Own</span>
+                    <span class="t2">Why They Own It</span>
+                    <span class="t3">What Risks They Take</span>
                 </div>
             </div>
         </div>
