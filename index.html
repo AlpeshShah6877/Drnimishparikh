@@ -565,11 +565,11 @@
 
         .about-block{margin-top:2.8rem}
         .about-block .ab-head{font-family:var(--font-h);font-weight:700;font-size:1.42rem;color:var(--text);margin-bottom:.4rem;display:flex;align-items:center;gap:12px}
-        .about-block .ab-head::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#b8860b,rgba(184,134,11,.08))}
+        .about-block .ab-head::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#2fd0c5,rgba(47,208,197,.08))}
         .about-block .ab-sub{color:var(--text-2);font-size:.95rem;margin-bottom:1.3rem}
 
-        .focus-wheel{position:relative;--W:min(560px,86vw);width:var(--W);max-width:560px;aspect-ratio:1;margin-inline:auto;--Ix:calc(var(--W) * .355);border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(10,17,30,.95),rgba(6,11,20,.55))}
-        .focus-wheel::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(212,175,55,.28),0 0 0 2px rgba(212,175,55,.9),0 0 0 6px rgba(11,18,32,.95),0 0 0 8px rgba(212,175,55,.7),0 0 24px rgba(212,175,55,.38),0 22px 60px -32px rgba(3,10,20,.95)}
+        .focus-wheel{position:relative;--W:min(560px,86vw);width:var(--W);max-width:560px;aspect-ratio:1;margin-inline:auto;--Ix:calc(var(--W) * .355);border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(96,52,184,.95),rgba(58,28,118,.85))}
+        .focus-wheel::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(47,208,197,.28),0 0 0 2px rgba(47,208,197,.9),0 0 0 6px rgba(33,14,66,.95),0 0 0 8px rgba(47,208,197,.7),0 0 24px rgba(47,208,197,.38),0 22px 60px -32px rgba(3,10,20,.95)}
         .fw-rotate{position:absolute;inset:0;animation:wheelSpin 75s linear infinite;transform-origin:50% 50%}
         .focus-wheel:hover .fw-rotate{animation-play-state:paused}
         @keyframes wheelSpin{to{transform:rotate(360deg)}}
@@ -586,25 +586,42 @@
         .fw-lab{
             position:absolute;left:50%;top:50%;z-index:4;width:96px;pointer-events:none;
             padding:6px 7px;border-radius:8px;text-align:center;
-            background:rgba(8,14,24,.6);border:1px solid rgba(255,255,255,.12);
+            background:rgba(44,22,86,.72);border:1px solid rgba(255,255,255,.12);
             font-size:.8rem;font-weight:600;line-height:1.26;color:#fff;
             text-shadow:0 1px 2px rgba(0,0,0,.7);
             box-shadow:0 8px 18px -10px rgba(3,10,20,.85);
             transform:translate(-50%,-50%) rotate(calc(var(--a) - 90deg)) translateX(var(--Ix));
         }
-        .fw-lab::before{content:"";position:absolute;left:50%;top:4px;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:var(--sc);box-shadow:0 0 0 2px rgba(8,14,24,.6)}
+        .fw-lab::before{content:"";position:absolute;left:50%;top:4px;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:var(--sc);box-shadow:0 0 0 2px rgba(33,14,66,.6)}
         .fw-center{
             position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;
             width:40%;aspect-ratio:1;border-radius:50%;
             display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;
-            background:radial-gradient(circle at 35% 30%,#182941,#0b1423 72%);
-            border:1px solid rgba(212,175,55,.5);
-            box-shadow:0 20px 50px -22px rgba(0,0,0,.85),inset 0 0 26px rgba(212,175,55,.07);
+            background:radial-gradient(circle at 35% 30%,#4a2b8f,#26114d 72%);
+            border:1px solid rgba(47,208,197,.5);
+            box-shadow:0 20px 50px -22px rgba(0,0,0,.85),inset 0 0 26px rgba(47,208,197,.07);
         }
         .fw-center .fw-c10{font-family:var(--font-h);font-size:clamp(2.1rem,7vw,3.2rem);font-weight:800;line-height:1;
-            background:linear-gradient(135deg,#f5e6b8,#d4af37 55%,#b8860b);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .fw-center .fw-csub{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(212,175,55,.92);line-height:1.55}
+            background:linear-gradient(135deg,#bcf3ef,#2fd0c5 55%,#0d7377);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .fw-center .fw-csub{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(47,208,197,.92);line-height:1.55}
         .fw-legend{display:none}
+
+        .fg-layout{display:grid;grid-template-columns:220px 1fr;gap:16px;align-items:stretch}
+                .fg-hero{position:relative;border-radius:20px;padding:24px 20px;display:flex;flex-direction:column;justify-content:center;gap:8px;background:radial-gradient(circle at 30% 20%,#7c3aed,#3b1d74 72%);border:1px solid rgba(168,85,247,.5);box-shadow:0 18px 40px -18px rgba(124,58,237,.55);color:#fff;overflow:hidden}
+                .fg-hero::after{content:"";position:absolute;right:-32px;top:-32px;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,.08)}
+                .fg-hero::before{content:"";position:absolute;left:-24px;bottom:-40px;width:110px;height:110px;border-radius:50%;background:rgba(47,208,197,.18)}
+                .fg-hero-num{font-family:var(--font-h);font-size:clamp(3rem,6vw,4.2rem);font-weight:800;line-height:1;background:linear-gradient(135deg,#fff,#e9d5ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+                .fg-hero-label{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.85);line-height:1.6}
+                .fg-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+                .fg-item{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:14px;padding:16px 14px 14px;min-height:96px;border-radius:14px;background:var(--glass);border:1px solid var(--glass-border);overflow:hidden;transition:transform .22s,box-shadow .22s}
+                .fg-item::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--sc)}
+                .fg-item::after{content:"";position:absolute;right:-18px;bottom:-18px;width:56px;height:56px;border-radius:50%;background:var(--sc);opacity:.12}
+                .fg-item:hover{transform:translateY(-4px);box-shadow:0 14px 28px -12px rgba(0,0,0,.25)}
+                .fg-num{font-family:var(--font-h);font-size:1.4rem;font-weight:800;line-height:1;background:linear-gradient(135deg,var(--sc),#2fd0c5);-webkit-background-clip:text;background-clip:text;color:transparent}
+                .fg-tt{font-size:.84rem;font-weight:600;line-height:1.4;color:var(--text);margin:0}
+                @media(max-width:1024px){.fg-layout{grid-template-columns:1fr}.fg-hero{flex-direction:row;align-items:center;gap:18px;padding:18px 22px}.fg-hero-num{font-size:2.6rem}.fg-grid{grid-template-columns:repeat(3,1fr)}}
+                @media(max-width:700px){.fg-grid{grid-template-columns:repeat(2,1fr)}}
+                @media(max-width:420px){.fg-grid{grid-template-columns:1fr}}
         @media(max-width:560px){
             .focus-wheel{--W:min(420px,88vw);--Ix:calc(var(--W) * .345)}
             .fw-lab{width:84px;font-size:.76rem;padding:5px 6px;line-height:1.26}
@@ -721,59 +738,59 @@
             margin-top:2.8rem;position:relative;overflow:hidden;text-align:center;
             padding:46px 26px 40px;border-radius:24px;
             background:
-                radial-gradient(120% 120% at 50% -10%,rgba(212,175,55,.16),transparent 50%),
-                radial-gradient(130% 120% at 50% 125%,rgba(15,163,183,.13),transparent 52%),
-                linear-gradient(180deg,rgba(13,22,41,.92),rgba(7,13,24,.96));
-            border:1px solid rgba(212,175,55,.38);
-            box-shadow:0 28px 70px -34px rgba(3,10,20,.95), inset 0 1px 0 rgba(255,255,255,.07);
+                radial-gradient(120% 120% at 50% -10%,rgba(255,255,255,.28),transparent 50%),
+                radial-gradient(130% 120% at 50% 125%,rgba(0,229,255,.2),transparent 52%),
+                linear-gradient(135deg,#a78bfa,#8b5cf6 55%,#7c3aed);
+            border:1px solid rgba(255,255,255,.4);
+            box-shadow:0 28px 70px -34px rgba(3,10,20,.95), inset 0 1px 0 rgba(255,255,255,.18);
         }
         .about-closing::before{content:"";position:absolute;top:0;left:12%;right:12%;height:2px;
-            background:linear-gradient(90deg,transparent,#d4af37,transparent);box-shadow:0 0 22px rgba(212,175,55,.75)}
+            background:linear-gradient(90deg,transparent,#ffffff,transparent);box-shadow:0 0 22px rgba(255,255,255,.75)}
         .about-closing::after{content:"";position:absolute;inset:auto 0 0 0;height:55%;
-            background:radial-gradient(60% 100% at 50% 100%,rgba(255,211,77,.09),transparent 70%);pointer-events:none}
+            background:radial-gradient(60% 100% at 50% 100%,rgba(255,255,255,.16),transparent 70%);pointer-events:none}
         .about-closing>*{position:relative;z-index:1}
         .about-closing .ac-head{
             font-family:var(--font-h);font-size:clamp(1.32rem,3.5vw,1.85rem);font-weight:800;line-height:1.32;
             margin-bottom:.35rem;text-wrap:balance;
-            background:linear-gradient(115deg,#f5e6b8,#d4af37 35%,#b8860b 60%,#f8ecc4 85%,#d4af37);
-            background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
+            background:linear-gradient(115deg,#ffffff,#f3e8ff 40%,#fdf4ff 70%,#ffffff);
+            background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#fff;
             animation:goldShine 6s linear infinite;
         }
         @keyframes goldShine{to{background-position:220% center}}
-        .about-closing p.ac-aud{color:#cbd5e1;font-size:.95rem;line-height:1.7;max-width:760px;margin:.8rem auto 0;text-wrap:balance}
-        .about-closing p.ac-aud em{color:#d4af37;font-style:normal;font-weight:600}
+        .about-closing p.ac-aud{color:#2e1065;font-size:.95rem;line-height:1.7;max-width:760px;margin:.8rem auto 0;text-wrap:balance;font-weight:500}
+        .about-closing p.ac-aud em{color:#fff;font-style:normal;font-weight:700}
         .ac-pivot{margin-top:1.8rem;display:flex;flex-direction:column;align-items:center;gap:12px}
         .ac-no{
             display:inline-flex;align-items:center;gap:10px;
             padding:9px 20px;border-radius:999px;
-            background:rgba(148,163,184,.08);border:1px solid rgba(148,163,184,.28);
-            font-size:.94rem;color:rgba(203,213,225,.9);
-            box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+            background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);
+            font-size:.94rem;color:#2e1065;font-weight:500;
+            box-shadow:inset 0 1px 0 rgba(255,255,255,.25);
         }
-        .ac-no .x{width:22px;height:22px;border-radius:50%;background:rgba(248,113,113,.18);border:1px solid rgba(248,113,113,.45);
-            color:#f87171;font-weight:900;font-size:.72rem;display:grid;place-items:center;flex-shrink:0}
-        .ac-no span{text-decoration:line-through;text-decoration-thickness:1.5px;text-decoration-color:rgba(148,163,184,.55)}
-        .ac-bridge{color:#d4af37;font-size:1.35rem;font-weight:800;line-height:1;text-shadow:0 0 14px rgba(212,175,55,.45)}
+        .ac-no .x{width:22px;height:22px;border-radius:50%;background:rgba(248,113,113,.3);border:1px solid rgba(248,113,113,.6);
+            color:#fff;font-weight:900;font-size:.72rem;display:grid;place-items:center;flex-shrink:0}
+        .ac-no span{text-decoration:line-through;text-decoration-thickness:1.5px;text-decoration-color:rgba(46,16,101,.5)}
+        .ac-bridge{color:#fff;font-size:1.35rem;font-weight:800;line-height:1;text-shadow:0 0 14px rgba(0,229,255,.55)}
         .ac-yes{
             max-width:680px;margin-inline:auto;
             padding:16px 24px;border-radius:18px;text-align:center;
-            background:linear-gradient(135deg,rgba(212,175,55,.17),rgba(184,134,11,.07));
-            border:1px solid rgba(212,175,55,.42);
-            font-family:var(--font-h);font-size:clamp(1rem,2.4vw,1.16rem);font-weight:700;line-height:1.55;color:#f5e6b8;
-            box-shadow:0 16px 38px -20px rgba(184,134,11,.5), inset 0 1px 0 rgba(255,255,255,.14);
+            background:rgba(255,255,255,.92);
+            border:1px solid rgba(255,255,255,.65);
+            font-family:var(--font-h);font-size:clamp(1rem,2.4vw,1.16rem);font-weight:700;line-height:1.55;color:#3b0764;
+            box-shadow:0 16px 38px -20px rgba(46,16,101,.45), inset 0 1px 0 rgba(255,255,255,.5);
             text-wrap:balance;
         }
-        .ac-yes em{color:#2fd0c5;font-style:normal}
+        .ac-yes em{color:#0d7377;font-style:normal}
         .ac-trio{margin-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
         .ac-trio span{
             display:inline-flex;align-items:center;gap:9px;
             padding:9px 18px;border-radius:999px;
             font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
-            background:#0d1626;border:1px solid rgba(212,175,55,.36);color:#f5e6b8;
-            box-shadow:0 10px 22px -12px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.09);
+            background:#fff;border:1px solid rgba(255,255,255,.7);color:#3b0764;
+            box-shadow:0 10px 22px -12px rgba(46,16,101,.35), inset 0 1px 0 rgba(255,255,255,.6);
         }
         .ac-trio span::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--tc);box-shadow:0 0 10px var(--tc)}
-        .ac-trio .t1{--tc:#2fd0c5}.ac-trio .t2{--tc:#d4af37}.ac-trio .t3{--tc:#a855f7}
+        .ac-trio .t1{--tc:#0d7377}.ac-trio .t2{--tc:#0e7490}.ac-trio .t3{--tc:#7c3aed}
         @media (prefers-reduced-motion: reduce){.about-closing .ac-head{animation:none}}
         @media(max-width:480px){.about-identity{flex-direction:column;align-items:flex-start}}
 
@@ -2967,43 +2984,22 @@
             <div class="about-block reveal">
                 <div class="ab-head">What Dr. Parikh&rsquo;s Research Focuses On</div>
                 <div class="ab-sub">Structured understanding of opportunities across the equity market</div>
-                <div class="fw-layout">
-                    <div class="focus-wheel">
-                        <div class="fw-rotate">
-                        <div class="fw-slice" style="--a:0deg;--sc:#0fa3b7" title="Equity Research &amp; Company Analysis"></div>
-                        <div class="fw-slice" style="--a:36deg;--sc:#16b3a0" title="Fundamental &amp; Financial Analysis"></div>
-                        <div class="fw-slice" style="--a:72deg;--sc:#2fd0c5" title="Investment Opportunities &amp; Ideas"></div>
-                        <div class="fw-slice" style="--a:108deg;--sc:#17b3bd" title="Short-Term and Positional Research"></div>
-                        <div class="fw-slice" style="--a:144deg;--sc:#0d8ea0" title="Sector &amp; Industry Analysis"></div>
-                        <div class="fw-slice" style="--a:180deg;--sc:#7c3aed" title="Market Trend &amp; Technical Assessment"></div>
-                        <div class="fw-slice" style="--a:216deg;--sc:#a855f7" title="Risk&ndash;Reward Evaluation"></div>
-                        <div class="fw-slice" style="--a:252deg;--sc:#0d7377" title="Research Reports &amp; Market Insights"></div>
-                        <div class="fw-slice" style="--a:288deg;--sc:#12a5b1" title="Non-Discretionary Model Portfolios"></div>
-                        <div class="fw-slice" style="--a:324deg;--sc:#2fb6a0" title="Educational &amp; Research Publications"></div>
-                        <div class="fw-lab" style="--a:0deg;--sc:#0fa3b7">Equity Research &amp; Company Analysis</div>
-                        <div class="fw-lab" style="--a:36deg;--sc:#16b3a0">Fundamental &amp; Financial Analysis</div>
-                        <div class="fw-lab" style="--a:72deg;--sc:#2fd0c5">Investment Opportunities &amp; Ideas</div>
-                        <div class="fw-lab" style="--a:108deg;--sc:#17b3bd">Short-Term and Positional Research</div>
-                        <div class="fw-lab" style="--a:144deg;--sc:#0d8ea0">Sector &amp; Industry Analysis</div>
-                        <div class="fw-lab" style="--a:180deg;--sc:#7c3aed">Market Trend &amp; Technical Assessment</div>
-                        <div class="fw-lab" style="--a:216deg;--sc:#a855f7">Risk&ndash;Reward Evaluation</div>
-                        <div class="fw-lab" style="--a:252deg;--sc:#0d7377">Research Reports &amp; Market Insights</div>
-                        <div class="fw-lab" style="--a:288deg;--sc:#12a5b1">Non-Discretionary Model Portfolios</div>
-                        <div class="fw-lab" style="--a:324deg;--sc:#2fb6a0">Educational &amp; Research Publications</div>
-                        </div>
-                        <div class="fw-center"><div class="fw-c10">10</div><div class="fw-csub">Research<br>Focus Areas</div></div>
+                <div class="fg-layout">
+                    <div class="fg-hero">
+                        <span class="fg-hero-num">10</span>
+                        <span class="fg-hero-label">Research<br>Focus Areas</span>
                     </div>
-                    <div class="fw-legend">
-                        <div class="fw-item"><span class="fw-dot" style="background:#0fa3b7"></span><span class="fw-n">01</span><span class="fw-tt">Equity Research &amp; Company Analysis</span></div>
-                        <div class="fw-item"><span class="fw-dot" style="background:#16b3a0"></span><span class="fw-n">02</span><span class="fw-tt">Fundamental &amp; Financial Analysis</span></div>
-                        <div class="fw-item"><span class="fw-dot" style="background:#2fd0c5"></span><span class="fw-n">03</span><span class="fw-tt">Investment Opportunities &amp; Ideas</span></div>
-                        <div class="fw-item"><span class="fw-dot" style="background:#17b3bd"></span><span class="fw-n">04</span><span class="fw-tt">Short-Term and Positional Research</span></div>
-                        <div class="fw-item"><span class="fw-dot" style="background:#0d8ea0"></span><span class="fw-n">05</span><span class="fw-tt">Sector &amp; Industry Analysis</span></div>
-                        <div class="fw-item"><span class="fw-dot" style="background:#7c3aed"></span><span class="fw-n">06</span><span class="fw-tt">Market Trend &amp; Technical Assessment</span></div>
-                        <div class="fw-item"><span class="fw-dot" style="background:#a855f7"></span><span class="fw-n">07</span><span class="fw-tt">Risk&ndash;Reward Evaluation</span></div>
-                        <div class="fw-item"><span class="fw-dot" style="background:#0d7377"></span><span class="fw-n">08</span><span class="fw-tt">Research Reports &amp; Market Insights</span></div>
-                        <div class="fw-item"><span class="fw-dot" style="background:#12a5b1"></span><span class="fw-n">09</span><span class="fw-tt">Non-Discretionary Model Portfolios</span></div>
-                        <div class="fw-item"><span class="fw-dot" style="background:#2fb6a0"></span><span class="fw-n">10</span><span class="fw-tt">Educational &amp; Research Publications</span></div>
+                    <div class="fg-grid">
+                        <div class="fg-item" style="--sc:#0fa3b7"><span class="fg-num">01</span><h5 class="fg-tt">Equity Research & Company Analysis</h5></div>
+                        <div class="fg-item" style="--sc:#16b3a0"><span class="fg-num">02</span><h5 class="fg-tt">Fundamental & Financial Analysis</h5></div>
+                        <div class="fg-item" style="--sc:#2fd0c5"><span class="fg-num">03</span><h5 class="fg-tt">Investment Opportunities & Ideas</h5></div>
+                        <div class="fg-item" style="--sc:#17b3bd"><span class="fg-num">04</span><h5 class="fg-tt">Short-Term and Positional Research</h5></div>
+                        <div class="fg-item" style="--sc:#0d8ea0"><span class="fg-num">05</span><h5 class="fg-tt">Sector & Industry Analysis</h5></div>
+                        <div class="fg-item" style="--sc:#7c3aed"><span class="fg-num">06</span><h5 class="fg-tt">Market Trend & Technical Assessment</h5></div>
+                        <div class="fg-item" style="--sc:#a855f7"><span class="fg-num">07</span><h5 class="fg-tt">Risk&ndash;Reward Evaluation</h5></div>
+                        <div class="fg-item" style="--sc:#0d7377"><span class="fg-num">08</span><h5 class="fg-tt">Research Reports & Market Insights</h5></div>
+                        <div class="fg-item" style="--sc:#12a5b1"><span class="fg-num">09</span><h5 class="fg-tt">Non-Discretionary Model Portfolios</h5></div>
+                        <div class="fg-item" style="--sc:#2fb6a0"><span class="fg-num">10</span><h5 class="fg-tt">Educational & Research Publications</h5></div>
                     </div>
                 </div>
                 <p style="margin-top:1.1rem;color:var(--text-2);font-size:.92rem;line-height:1.7">Every research idea is supported by a defined investment thesis, key factors, potential risks and the rationale behind the view.</p>
