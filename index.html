@@ -564,7 +564,7 @@ z-index: 10000;
         .about-quote p em{color:#0fa3b7;font-style:normal}
 
         .about-block{margin-top:2.8rem}
-        .about-block .ab-head{font-family:var(--font-h);font-weight:700;font-size:1.42rem;color:var(--text);margin-bottom:.4rem;display:flex;align-items:center;gap:12px}
+        .about-block .ab-head{font-family:var(--font-h);font-weight:700;font-size:1.42rem;color:var(--text);margin:0 0 .4rem;display:flex;align-items:center;gap:12px}
         .about-block .ab-head::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#2fd0c5,rgba(47,208,197,.08))}
         .about-block .ab-sub{color:var(--text-2);font-size:.95rem;margin-bottom:1.3rem}
 
@@ -2996,7 +2996,7 @@ z-index: 10000;
             </div>
 
             <div class="about-block reveal">
-                <div class="ab-head">What Dr. Parikh&rsquo;s Research Focuses On</div>
+                <h3 class="ab-head">What Dr. Parikh&rsquo;s Research Focuses On</h3>
                 <div class="ab-sub">Structured understanding of opportunities across the equity market</div>
                 <div class="fg-layout">
                     <div class="fg-hero">
@@ -3020,7 +3020,7 @@ z-index: 10000;
             </div>
 
             <div class="about-block reveal">
-                <div class="ab-head">A Research-First Approach</div>
+                <h3 class="ab-head">A Research-First Approach</h3>
                 <div class="ab-sub">A disciplined research process</div>
                 <div class="process-wrap-3d">
                 <div class="process-steps">
@@ -3036,7 +3036,7 @@ z-index: 10000;
             </div>
 
             <div class="about-block reveal">
-                <div class="ab-head">Built On Four Principles</div>
+                <h3 class="ab-head">Built On Four Principles</h3>
                 <div class="ab-sub">The approach is anchored in discipline and clarity</div>
                 <div class="principles-grid">
                     <div class="principle-card">
@@ -5309,12 +5309,17 @@ z-index: 10000;
 
       /* Read Aloud (Web Speech API) */
       function pageText(){
-        var clone = document.body.cloneNode(true);
-        ['#a11yPanel','#a11yFab','#a11yGuide','#a11yMask'].forEach(function(sel){
-          var el = clone.querySelector(sel);
-          if (el) el.remove();
+        var src = document.body.cloneNode(true);
+        var clone = document.createElement('div');
+        while (src.firstChild) clone.appendChild(src.firstChild);
+        ['#a11yPanel','#a11yFab','#a11yGuide','#a11yMask','header','.mobile-overlay','.ticker','.skip-link','footer','script','noscript','.back-to-top','#scrollTop'].forEach(function(sel){
+          Array.prototype.forEach.call(clone.querySelectorAll(sel), function(el){ el.remove(); });
         });
-        return (clone.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 30000);
+        clone.style.cssText = 'position:absolute;left:-99999px;top:0;width:1px;height:1px;overflow:hidden;pointer-events:none;';
+        document.body.appendChild(clone);
+        var txt = clone.innerText || clone.textContent || '';
+        document.body.removeChild(clone);
+        return txt.replace(/\s+/g, ' ').trim().slice(0, 30000);
       }
       function chunkText(txt, max){
         var out = [], cur = '', parts = txt.split(/([.!?…]+)\s+/) || [], i, s;
