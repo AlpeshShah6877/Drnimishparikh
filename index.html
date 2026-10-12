@@ -70,8 +70,8 @@
             top: 72px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 10000;
-            background: var(--cyan);
+z-index: 10000;
+            background: #0d7377;
             color: #fff;
             padding: 10px 24px;
             border-radius: 12px;
@@ -1731,8 +1731,8 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             font-weight: 700;
-            color: #b8860b;
-            opacity: 0.15;
+            color: #8b6914;
+            opacity: 1;
             line-height: 1;
         }
         .product-body {
@@ -1794,6 +1794,7 @@
             box-shadow: 0 4px 20px -6px rgba(0,0,0,0.25);
         }
         [data-theme="dark"] .product-list li { border-bottom-color: rgba(255,255,255,0.04); }
+        [data-theme="dark"] .product-num { color: #e2b34a; }
         @media (max-width:640px) {
             .products-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
             .product-icon { height: 70px; }
@@ -2080,8 +2081,14 @@
             transition: background .25s;
             background: transparent;
             color: var(--text);
+            border: 0;
+            margin: 0;
+            font-family: inherit;
+            -webkit-appearance: none;
+            appearance: none;
         }
         .faq-q:hover { background: rgba(46,204,165,0.04); }
+        .faq-q:focus-visible { outline: 2px solid #2fd0c5; outline-offset: -2px; border-radius: 16px; background: rgba(46,204,165,0.06); }
         .faq-q .arr {
             transition: transform .25s;
             background: linear-gradient(135deg, #2d5fba, #2fd0c5);
@@ -2092,7 +2099,8 @@
             font-size: 1.1rem;
         }
         .faq-item.open .faq-q .arr { transform: rotate(180deg); }
-        .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+        .faq-a { max-height: 0; overflow: hidden; visibility: hidden; transition: max-height .3s ease, visibility .3s; }
+        .faq-item.open .faq-a { visibility: visible; }
         .faq-a .faq-a-inner {
             margin: 0 12px 14px;
             padding: 18px 22px;
@@ -3001,8 +3009,8 @@
                         <div class="fg-item" style="--sc:#2fd0c5"><span class="fg-num">03</span><h5 class="fg-tt">Investment Opportunities & Ideas</h5></div>
                         <div class="fg-item" style="--sc:#17b3bd"><span class="fg-num">04</span><h5 class="fg-tt">Short-Term and Positional Research</h5></div>
                         <div class="fg-item" style="--sc:#0d8ea0"><span class="fg-num">05</span><h5 class="fg-tt">Sector & Industry Analysis</h5></div>
-                        <div class="fg-item" style="--sc:#7c3aed"><span class="fg-num">06</span><h5 class="fg-tt">Market Trend & Technical Assessment</h5></div>
-                        <div class="fg-item" style="--sc:#a855f7"><span class="fg-num">07</span><h5 class="fg-tt">Risk&ndash;Reward Evaluation</h5></div>
+                        <div class="fg-item" style="--sc:#128f9e"><span class="fg-num">06</span><h5 class="fg-tt">Market Trend & Technical Assessment</h5></div>
+                        <div class="fg-item" style="--sc:#1ba387"><span class="fg-num">07</span><h5 class="fg-tt">Risk&ndash;Reward Evaluation</h5></div>
                         <div class="fg-item" style="--sc:#0d7377"><span class="fg-num">08</span><h5 class="fg-tt">Research Reports & Market Insights</h5></div>
                         <div class="fg-item" style="--sc:#12a5b1"><span class="fg-num">09</span><h5 class="fg-tt">Non-Discretionary Model Portfolios</h5></div>
                         <div class="fg-item" style="--sc:#2fb6a0"><span class="fg-num">10</span><h5 class="fg-tt">Educational & Research Publications</h5></div>
@@ -4799,12 +4807,12 @@
             </div>
             <div class="faq-list">
 <div class="faq-item">
-                    <div class="faq-q">Are you SEBI registered? <span class="arr">&#9662;</span></div>
-                    <div class="faq-a"><div class="faq-a-inner"><p>Yes. My SEBI registration number is <strong>INH000029193</strong>.</p></div></div>
+                    <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-1">Are you SEBI registered? <span class="arr" aria-hidden="true">&#9662;</span></button>
+                    <div class="faq-a" id="faq-panel-1"><div class="faq-a-inner"><p>Yes. My SEBI registration number is <strong>INH000029193</strong>.</p></div></div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-q">What is a part-time SEBI registered Research Analyst (RA)? <span class="arr">&#9662;</span></div>
-                    <div class="faq-a">
+                    <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-2">What is a part-time SEBI registered Research Analyst (RA)? <span class="arr" aria-hidden="true">&#9662;</span></button>
+                    <div class="faq-a" id="faq-panel-2">
                         <div class="faq-a-inner">
                             <p>A Part-Time Research Analyst (Part-Time RA) generally means a person who performs research-analysis activities on a part-time basis rather than as a full-time occupation.</p>
                             <ul>
@@ -4816,8 +4824,8 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-q">Why should one take investment advice from a SEBI-registered entity? <span class="arr">&#9662;</span></div>
-                    <div class="faq-a">
+                    <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-panel-3">Why should one take investment advice from a SEBI-registered entity? <span class="arr" aria-hidden="true">&#9662;</span></button>
+                    <div class="faq-a" id="faq-panel-3">
                         <div class="faq-a-inner">
                             <p>Your hard-earned money deserves advice backed by research, transparency and regulatory accountability. A SEBI-registered Research Analyst operates within the regulatory framework prescribed by SEBI, follows applicable disclosure and compliance requirements, and provides research-based views rather than relying on rumours or guaranteed-return promises. Before subscribing to any investment research or recommendation service, always verify the entity's SEBI registration status and understand the associated risks.</p>
                             <p><strong>Remember:</strong> No investment is risk-free and no genuine professional can guarantee returns.</p>
@@ -5163,11 +5171,13 @@
                 document.querySelectorAll('.faq-item').forEach(function(i){
                     i.classList.remove('open');
                     i.querySelector('.faq-a').style.maxHeight='0';
+                    i.querySelector('.faq-q').setAttribute('aria-expanded','false');
                 });
                 if(!isOpen){
                     item.classList.add('open');
                     var fa=item.querySelector('.faq-a');
                     fa.style.maxHeight = (fa.scrollHeight + 40) + 'px';
+                    item.querySelector('.faq-q').setAttribute('aria-expanded','true');
                 }
             });
         });
