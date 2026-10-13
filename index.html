@@ -85,6 +85,17 @@ z-index: 10000;
         .skip-link.hidden { opacity: 0; pointer-events: none; }
         .skip-link:hover { background: #0a5c5f; }
         :focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -968,6 +979,11 @@ z-index: 10000;
             margin-bottom: 0;
             padding-bottom: 0;
             border-bottom: none;
+        }
+        .bp-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
         .bp-clause-head {
             display: flex;
@@ -1919,6 +1935,13 @@ z-index: 10000;
             font-size: .8rem;
             font-weight: 400;
             color: var(--text-3);
+        }
+        .sub-price .sub-old {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-3);
+            text-decoration: line-through;
+            margin-right: 8px;
         }
         .sub-desc {
             font-size: .78rem;
@@ -3073,9 +3096,9 @@ z-index: 10000;
                 <div class="ac-head">For Investors Who Want More Than Market Noise</div>
                 <p class="ac-aud">Retail investor, HNI, professional, institutional participant <em>&mdash;</em> or someone building a better understanding of equity markets. Dr. Parikh&rsquo;s objective: research that is clear, structured <em>&amp;</em> actionable.</p>
                 <div class="ac-pivot">
-                    <div class="ac-no"><span class="x">&#10005;</span><span>The goal is not to promise extraordinary returns.</span></div>
-                    <div class="ac-bridge">&#8595;</div>
-                    <div class="ac-yes">The goal is to help investors understand <em>what they own</em>, <em>why they own it</em> <em>&amp;</em> <em>what risks they are taking</em>.</div>
+                    <div class="ac-no"><span class="x" aria-hidden="true">&#10005;</span><span><span class="sr-only">Rejected &mdash; </span>The goal is not to promise extraordinary returns.</span></div>
+                    <div class="ac-bridge" aria-hidden="true">&#8595;</div>
+                    <div class="ac-yes"><span class="sr-only">Instead &mdash; </span>The goal is to help investors understand <em>what they own</em>, <em>why they own it</em> <em>&amp;</em> <em>what risks they are taking</em>.</div>
                 </div>
                 <div class="ac-trio">
                     <span class="t1">What They Own</span>
@@ -3190,67 +3213,42 @@ z-index: 10000;
             <div class="sub-grid">
 
                 <div class="sub-card">
-                    <div class="sub-ribbon">Coming Soon</div>
                     <div class="sub-card-top">
                         <div class="sub-badge">Basic</div>
-                        <p class="sub-price" style="font-size:1rem; color:#999">Plan-1</p>
+                        <p class="sub-price">&#8377;3,000 <span>/ Month</span></p>
                         <p class="sub-desc">Essential equity research for individual investors.</p>
-                    </div>
-                    <div class="sub-divider"></div>
-                    <div style="padding:18px 20px 20px">
-                        <span style="display:inline-block; padding:8px 18px; border-radius:24px; font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:linear-gradient(135deg, #999, #bbb)">Coming Soon</span>
                     </div>
                 </div>
 
                 <div class="sub-card sub-card-featured">
-                    <div class="sub-ribbon">Coming Soon</div>
                     <div class="sub-card-top">
                         <div class="sub-badge">Premium</div>
-                        <p class="sub-price" style="font-size:1rem; color:var(--accent)">Plan-2</p>
+                        <p class="sub-price">&#8377;5,000 <span>/ Month</span></p>
                         <p class="sub-desc">Comprehensive research with frequent updates.</p>
                     </div>
-                    <div class="sub-divider"></div>
-                    <div style="padding:18px 20px 20px">
-                        <span style="display:inline-block; padding:8px 18px; border-radius:24px; font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:linear-gradient(135deg, #0a9e9e, #0d7377)">Coming Soon</span>
-                    </div>
                 </div>
 
                 <div class="sub-card">
-                    <div class="sub-ribbon">Coming Soon</div>
                     <div class="sub-card-top">
                         <div class="sub-badge" style="font-size:.8rem">Strategy Building Part 1</div>
-                        <p class="sub-price" style="font-size:1rem; color:#999">Plan-3 (Basic)</p>
+                        <p class="sub-price">&#8377;15,000</p>
                         <p class="sub-desc">Foundational strategy building for new investors.</p>
                     </div>
-                    <div class="sub-divider"></div>
-                    <div style="padding:18px 20px 20px">
-                        <span style="display:inline-block; padding:8px 18px; border-radius:24px; font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:linear-gradient(135deg, #999, #bbb)">Coming Soon</span>
-                    </div>
                 </div>
 
                 <div class="sub-card">
-                    <div class="sub-ribbon">Coming Soon</div>
                     <div class="sub-card-top">
                         <div class="sub-badge" style="font-size:.8rem">Strategy Building Part 2</div>
-                        <p class="sub-price" style="font-size:1rem; color:#999">Plan-4 (Advance)</p>
+                        <p class="sub-price">&#8377;15,000</p>
                         <p class="sub-desc">Advanced strategy building for experienced investors.</p>
-                    </div>
-                    <div class="sub-divider"></div>
-                    <div style="padding:18px 20px 20px">
-                        <span style="display:inline-block; padding:8px 18px; border-radius:24px; font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:linear-gradient(135deg, #999, #bbb)">Coming Soon</span>
                     </div>
                 </div>
 
                 <div class="sub-card">
-                    <div class="sub-ribbon">Coming Soon</div>
                     <div class="sub-card-top">
                         <div class="sub-badge" style="font-size:.8rem">Combo of Basic & Advance</div>
-                        <p class="sub-price" style="font-size:1rem; color:#999">Plan-5</p>
+                        <p class="sub-price"><span class="sr-only">was </span><s class="sub-old">&#8377;30,000</s> &#8377;25,000</p>
                         <p class="sub-desc">Combined strategy building from basic to advanced.</p>
-                    </div>
-                    <div class="sub-divider"></div>
-                    <div style="padding:18px 20px 20px">
-                        <span style="display:inline-block; padding:8px 18px; border-radius:24px; font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:linear-gradient(135deg, #999, #bbb)">Coming Soon</span>
                     </div>
                 </div>
 
@@ -4054,25 +4052,26 @@ z-index: 10000;
                                     <p style="text-align:center; font-size:.85rem; color:var(--text-muted); margin:0">SEBI Registered Research Analyst</p>
                                 </div>
                                 <div class="bp-body">
-                                    <div class="bp-clause">
+                                    <ol role="list" class="bp-list">
+                                    <li class="bp-clause">
                                         <div class="bp-clause-head">
                                             <h5 class="bp-clause-title">1. Availing of Research Services</h5>
                                         </div>
                                         <p>By accepting the research services, the client acknowledges and confirms that he/she has chosen to subscribe to the research services provided by the Research Analyst (RA) at his/her own discretion. The RA confirms that the research services will be provided in compliance with the applicable provisions of the RA Regulations.</p>
-                                    </div>
-                                    <div class="bp-clause">
+                                    </li>
+                                    <li class="bp-clause">
                                         <div class="bp-clause-head">
                                             <h5 class="bp-clause-title">2. Obligations of the Research Analyst (RA)</h5>
                                         </div>
                                         <p>The RA and the client shall comply with the provisions of the SEBI Act and all applicable rules and regulations prescribed by SEBI, including the RA Regulations and relevant notifications issued by the Government, as amended or applicable from time to time.</p>
-                                    </div>
-                                    <div class="bp-clause">
+                                    </li>
+                                    <li class="bp-clause">
                                         <div class="bp-clause-head">
                                             <h5 class="bp-clause-title">3. Client Information and KYC</h5>
                                         </div>
                                         <p>The client shall provide all necessary information and supporting documents as required by the RA in the prescribed format, in accordance with RAASB/SEBI requirements from time to time. The RA shall collect, maintain, submit and verify the client&rsquo;s KYC records through the KYC Registration Agency (KRA) as per applicable SEBI requirements.</p>
-                                    </div>
-                                    <div class="bp-clause">
+                                    </li>
+                                    <li class="bp-clause">
                                         <div class="bp-clause-head">
                                             <h5 class="bp-clause-title">4. Terms and Conditions of Research Services</h5>
                                         </div>
@@ -4092,62 +4091,63 @@ z-index: 10000;
                                                 <li>It holds the required registration and qualifications.</li>
                                             </ul>
                                         </blockquote>
-                                    </div>
-                                    <div class="bp-clause">
+                                    </li>
+                                    <li class="bp-clause">
                                         <div class="bp-clause-head">
                                             <h5 class="bp-clause-title">5. Fees and Payment Terms</h5>
                                         </div>
                                         <p>The client shall make payment to the RA towards the mutually agreed charges for the services provided by the RA, along with applicable statutory levies. All such payments shall be made in the prescribed manner and through the agreed mode(s) / mechanism(s).</p>
-                                    </div>
-                                    <div class="bp-clause">
+                                    </li>
+                                    <li class="bp-clause">
                                         <div class="bp-clause-head">
                                             <h5 class="bp-clause-title">6. Risk Disclaimers</h5>
                                         </div>
                                         <p><strong>Standard Warning:</strong> Investment in securities market is subject to market risks. Read all the related documents carefully before investing.</p>
                                         <p><strong>Standard Disclaimer:</strong> Registration granted by SEBI, membership of BASL (in case of IAs) and certification from NISM in no way guarantee performance of the intermediatary or provide any assurance of returns to investors.</p>
-                                    </div>
-                                    <div class="bp-clause">
+                                    </li>
+                                    <li class="bp-clause">
                                         <div class="bp-clause-head">
                                             <h5 class="bp-clause-title">7. Transparency and Independence</h5>
                                         </div>
                                         <p>The RA shall comply with all applicable SEBI regulations, circulars and directions issued from time to time concerning the identification, disclosure and management of any actual or potential conflicts of interest. The RA shall make all mandatory disclosures necessary to ensure transparency and maintain independence in its research activities.</p>
-                                    </div>
-                                    <div class="bp-clause">
+                                    </li>
+                                    <li class="bp-clause">
                                         <div class="bp-clause-head">
                                             <h5 class="bp-clause-title">8. Conflict of Interest</h5>
                                         </div>
                                         <p>The RA shall comply with all applicable SEBI regulations, circulars and directions issued from time to time concerning the identification, disclosure and management of any actual or potential conflicts of interest. The RA shall make all mandatory disclosures necessary to ensure transparency and maintain independence in its research activities.</p>
-                                    </div>
-                                    <div class="bp-clause">
+                                    </li>
+                                    <li class="bp-clause">
                                         <div class="bp-clause-head">
                                             <h5 class="bp-clause-title">9. Discontinuation of Services and Reimbursement of Charges</h5>
                                         </div>
                                         <p>The RA may discontinue or suspend research services provided to the client if the RA&rsquo;s registration is suspended or cancelled by SEBI and shall return the applicable unused amount to the client. If the RA&rsquo;s registration remains suspended for more than 60 (sixty) days or is cancelled, the RA shall reimburse the fees on a pro-rata basis for the remaining period, calculated from the effective date of suspension/cancellation until the end of the subscription term.</p>
-                                    </div>
-                                    <div class="bp-clause">
+                                    </li>
+                                    <li class="bp-clause">
                                         <div class="bp-clause-head">
                                             <h5 class="bp-clause-title">10. Policy Amendments and Updates</h5>
                                         </div>
                                         <p>Any supplementary provisions introduced by the RA shall remain consistent with applicable SEBI rules, regulations and circulars. Any modification to such provisions or related document(s) shall be communicated to clients at least 15 days prior to its implementation.</p>
-                                    </div>
-                                    <div class="bp-clause">
+                                    </li>
+                                    <li class="bp-clause">
                                         <div class="bp-clause-head">
                                             <h5 class="bp-clause-title">11. Client Awareness and Guidance</h5>
                                         </div>
                                         <p>Clients shall be advised to carefully review the prescribed <em>Do&rsquo;s and Don&rsquo;ts</em> while dealing with a Research Analyst (RA), as specified under <em>SEBI Master Circular No. SEBI/HO/MIRSD-POD-1/P/CIR/2024/49 dated May 21, 2024</em>, or as may be prescribed, amended, or notified by SEBI from time to time.</p>
-                                    </div>
-                                    <div class="bp-clause">
+                                    </li>
+                                    <li class="bp-clause">
                                         <div class="bp-clause-head">
                                             <h5 class="bp-clause-title">12. Voluntary Centralised Fee Payment Facility</h5>
                                         </div>
                                         <p>The RA shall inform and guide its clients regarding the optional <em>&lsquo;Centralised Fee Collection Mechanism for Investment Advisers and Research Analysts&rsquo; (CeFCoM)</em>, which may be used by clients for making fee payments to the RA.</p>
-                                    </div>
-                                    <div class="bp-clause">
+                                    </li>
+                                    <li class="bp-clause">
                                         <div class="bp-clause-head">
                                             <h5 class="bp-clause-title">13. Disclosure of AI-Assisted Research Practices</h5>
                                         </div>
                                         <p>Any use of artificial intelligence or AI-based tools in the preparation of research reports shall be appropriately disclosed, indicating the extent to which such tools have contributed to the research process.</p>
-                                    </div>
+                                    </li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
